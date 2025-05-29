@@ -52,3 +52,4 @@ document.getElementById('resizeForm').addEventListener('submit', async function 
   document.getElementById('resizeDownload').innerHTML = '';
   document.getElementById('resizeDownload').appendChild(link);
 });
+
