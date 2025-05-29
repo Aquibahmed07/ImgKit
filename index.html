@@ -1,173 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PixelCraft - Online Image Tools</title>
-  <link rel="stylesheet" href="/static/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  <header>
-    <div class="logo">PixelCraft</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#compress"><i class="fa fa-compress"></i> Compress</a></li>
-        <li><a href="#resize"><i class="fa fa-arrows-alt"></i> Resize</a></li>
-        <li><a href="#crop"><i class="fa fa-crop"></i> Crop</a></li>
-        <li><a href="#convert2jpg"><i class="fa fa-file-image-o"></i> To JPG</a></li>
-        <li><a href="#convertfromjpg"><i class="fa fa-file-image-o"></i> From JPG</a></li>
-        <li><a href="#watermark"><i class="fa fa-stamp"></i> Watermark</a></li>
-        <li><a href="#removebg"><i class="fa fa-eraser"></i> Remove BG</a></li>
-        <li><a href="#rotate"><i class="fa fa-repeat"></i> Rotate</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>PixelCraft</h1>
-      <p>All-in-one free online image tools. Convert, compress, and edit your images instantly.</p>
-    </section>
-    <section class="tools-grid">
-      <div class="tool-card" id="compress">
-        <div class="tool-icon" style="background:#c6e48b;"><i class="fa fa-compress"></i></div>
-        <h2>Compress IMAGE</h2>
-        <p>Compress JPG, PNG, SVG, and GIFs while saving space and maintaining quality.</p>
-        <form id="compressForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <button type="submit">Compress</button>
-        </form>
-        <div class="download-link" id="compressDownload"></div>
-      </div>
-      <div class="tool-card" id="resize">
-        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-arrows-alt"></i></div>
-        <h2>Resize IMAGE</h2>
-        <p>Define your dimensions, by percent or pixel, and resize your JPG, PNG, SVG, and GIF images.</p>
-        <form id="resizeForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <input type="number" name="width" placeholder="Width (px)" min="1" required>
-          <input type="number" name="height" placeholder="Height (px)" min="1" required>
-          <button type="submit">Resize</button>
-        </form>
-        <div class="download-link" id="resizeDownload"></div>
-      </div>
-      <div class="tool-card" id="crop">
-        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-crop"></i></div>
-        <h2>Crop IMAGE</h2>
-        <p>Crop JPG, PNG, or GIFs with ease; choose pixels to define your rectangle or use our visual editor.</p>
-        <form id="cropForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <input type="number" name="left" placeholder="Left (px)" min="0" required>
-          <input type="number" name="upper" placeholder="Top (px)" min="0" required>
-          <input type="number" name="right" placeholder="Right (px)" min="1" required>
-          <input type="number" name="lower" placeholder="Bottom (px)" min="1" required>
-          <button type="submit">Crop</button>
-        </form>
-        <div class="download-link" id="cropDownload"></div>
-      </div>
-      <div class="tool-card" id="convert2jpg">
-        <div class="tool-icon" style="background:#ffe066;"><i class="fa fa-file-image-o"></i></div>
-        <h2>Convert to JPG</h2>
-        <p>Turn PNG, GIF, TIF, PSD, SVG, WEBP, HEIC, or RAW format images to JPG in bulk with ease.</p>
-        <form id="png2jpgForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/png" multiple required>
-          <button type="submit">Convert</button>
-        </form>
-        <div class="download-link" id="png2jpgDownload"></div>
-      </div>
-      <div class="tool-card" id="convertfromjpg">
-        <div class="tool-icon" style="background:#ffe066;"><i class="fa fa-file-image-o"></i></div>
-        <h2>Convert from JPG</h2>
-        <p>Turn JPG images to PNG and GIF. Choose several JPGs to create an animated GIF in seconds!</p>
-        <form id="jpg2pnggifForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg" multiple required>
-          <select name="format" required>
-            <option value="png">Convert to PNG</option>
-            <option value="gif">Convert to GIF</option>
-          </select>
-          <button type="submit">Convert</button>
-        </form>
-        <div class="download-link" id="jpg2pnggifDownload"></div>
-      </div>
-      <div class="tool-card" id="photoeditor">
-        <div class="tool-icon" style="background:#e1bee7;"><i class="fa fa-pencil"></i></div>
-        <h2>Photo editor</h2>
-        <p>Spice up your pictures with text, effects, frames or stickers. Simple editing tools for your image needs.</p>
-        <div class="coming-soon">Coming soon</div>
-      </div>
-      <div class="tool-card" id="upscale">
-        <div class="tool-icon" style="background:#c6e48b;"><i class="fa fa-search-plus"></i></div>
-        <h2>Upscale Image</h2>
-        <p>Enlarge your images with high resolution. Easily increase the size of your JPG and PNG images while maintaining visual quality.</p>
-        <div class="coming-soon">Coming soon</div>
-      </div>
-      <div class="tool-card" id="removebg">
-        <div class="tool-icon" style="background:#c6e48b;"><i class="fa fa-eraser"></i></div>
-        <h2>Remove background</h2>
-        <p>Quickly remove image backgrounds with high accuracy. Instantly detect objects and cut out backgrounds with ease.</p>
-        <form id="removebgForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <button type="submit">Remove Background</button>
-        </form>
-        <div class="download-link" id="removebgDownload"></div>
-      </div>
-      <div class="tool-card" id="watermark">
-        <div class="tool-icon" style="background:#b2dfdb;"><i class="fa fa-stamp"></i></div>
-        <h2>Watermark IMAGE</h2>
-        <p>Stamp an image or text over your images in seconds. Choose the typography, transparency and position.</p>
-        <form id="watermarkForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <input type="text" name="text" placeholder="Watermark Text" required>
-          <input type="number" name="opacity" placeholder="Opacity (0-100)" min="0" max="100" value="50" required>
-          <button type="submit">Add Watermark</button>
-        </form>
-        <div class="download-link" id="watermarkDownload"></div>
-      </div>
-      <div class="tool-card" id="meme">
-        <div class="tool-icon" style="background:#f8bbd0;"><i class="fa fa-smile-o"></i></div>
-        <h2>Meme generator</h2>
-        <p>Create your memes online with ease. Caption meme images or upload your pictures to make custom memes.</p>
-        <div class="coming-soon">Coming soon</div>
-      </div>
-      <div class="tool-card" id="rotate">
-        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-repeat"></i></div>
-        <h2>Rotate IMAGE</h2>
-        <p>Rotate many images JPG, PNG or GIF at same time. Choose to rotate only landscape or portrait images!</p>
-        <form id="rotateForm" enctype="multipart/form-data">
-          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
-          <input type="number" name="angle" placeholder="Angle (deg)" value="90" required>
-          <button type="submit">Rotate</button>
-        </form>
-        <div class="download-link" id="rotateDownload"></div>
-      </div>
-      <div class="tool-card" id="html2img">
-        <div class="tool-icon" style="background:#ffe066;"><i class="fa fa-file-code-o"></i></div>
-        <h2>HTML to IMAGE</h2>
-        <p>Convert webpages in HTML to JPG or SVG. Copy and paste the URL of the page you want and convert it to IMAGE with a click.</p>
-        <div class="coming-soon">Coming soon</div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <h2>PixelCraft</h2>
-      </div>
-      <div class="footer-contact">
-        <h3>Contact Us</h3>
-        <p>Email: aquibahmed10@gmail.com</p>
-        <p>Phone: +918309275323</p>
-      </div>
-      <div class="footer-social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 PixelCraft. All Rights Reserved.</p>
-    </div>
-  </footer>
-  <script src="/static/script.js"></script>
-</body>
-</html>
+from flask import Flask, request, send_file, render_template
+from PIL import Image, ImageDraw, ImageFont
+import io, zipfile, numpy as np
+from werkzeug.utils import secure_filename
+
+app = Flask(__name__)
+
+def process_images(save_func, download_name):
+    image_files = request.files.getlist('images')
+    mem_zip = io.BytesIO()
+    with zipfile.ZipFile(mem_zip, 'w') as zf:
+        for img in image_files:
+            filename, data = save_func(img)
+            zf.writestr(filename, data)
+    mem_zip.seek(0)
+    return send_file(mem_zip, as_attachment=True, download_name=download_name, mimetype='application/zip')
+
+@app.route('/')
+def home():
+    return render_template("index.html")
+
+@app.route('/convert/png2jpg', methods=['POST'])
+def png2jpg():
+    def save_func(img):
+        filename = secure_filename(img.filename.rsplit('.', 1)[0] + ".jpg")
+        image = Image.open(img).convert("RGB")
+        img_bytes = io.BytesIO()
+        image.save(img_bytes, format='JPEG')
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "converted_jpg.zip")
+
+@app.route('/convert/compress', methods=['POST'])
+def compress():
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img)
+        img_bytes = io.BytesIO()
+        if image.format == 'JPEG':
+            image.save(img_bytes, format='JPEG', quality=50, optimize=True)
+        else:
+            image.save(img_bytes, format='PNG', optimize=True)
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "compressed.zip")
+
+@app.route('/convert/resize', methods=['POST'])
+def resize():
+    width = int(request.form.get('width'))
+    height = int(request.form.get('height'))
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img)
+        resized = image.resize((width, height))
+        img_bytes = io.BytesIO()
+        fmt = 'JPEG' if image.format == 'JPEG' else 'PNG'
+        resized.save(img_bytes, format=fmt)
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "resized.zip")
+
+@app.route('/convert/rotate', methods=['POST'])
+def rotate():
+    angle = int(request.form.get('angle', 90))
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img)
+        rotated = image.rotate(-angle, expand=True)
+        img_bytes = io.BytesIO()
+        fmt = 'JPEG' if image.format == 'JPEG' else 'PNG'
+        rotated.save(img_bytes, format=fmt)
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "rotated.zip")
+
+@app.route('/convert/crop', methods=['POST'])
+def crop():
+    left = int(request.form.get('left', 0))
+    upper = int(request.form.get('upper', 0))
+    right = int(request.form.get('right', 100))
+    lower = int(request.form.get('lower', 100))
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img)
+        cropped = image.crop((left, upper, right, lower))
+        img_bytes = io.BytesIO()
+        fmt = 'JPEG' if image.format == 'JPEG' else 'PNG'
+        cropped.save(img_bytes, format=fmt)
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "cropped.zip")
+
+@app.route('/convert/jpg2pnggif', methods=['POST'])
+def jpg2pnggif():
+    image_files = request.files.getlist('images')
+    fmt = request.form.get('format', 'png').lower()
+    mem_zip = io.BytesIO()
+    with zipfile.ZipFile(mem_zip, 'w') as zf:
+        if fmt == 'gif':
+            images = [Image.open(img).convert("RGB") for img in image_files]
+            if images:
+                img_bytes = io.BytesIO()
+                images[0].save(img_bytes, format='GIF', save_all=True, append_images=images[1:], loop=0)
+                zf.writestr('animated.gif', img_bytes.getvalue())
+        else:
+            for img in image_files:
+                filename = secure_filename(img.filename.rsplit('.', 1)[0] + ".png")
+                image = Image.open(img).convert("RGBA")
+                img_bytes = io.BytesIO()
+                image.save(img_bytes, format='PNG')
+                zf.writestr(filename, img_bytes.getvalue())
+    mem_zip.seek(0)
+    return send_file(mem_zip, as_attachment=True, download_name=f"converted_{fmt}.zip", mimetype='application/zip')
+
+@app.route('/convert/watermark', methods=['POST'])
+def watermark():
+    text = request.form.get('text', 'PixelCraft')
+    opacity = int(request.form.get('opacity', 50))
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img).convert("RGBA")
+        watermark_layer = Image.new("RGBA", image.size, (255,255,255,0))
+        draw = ImageDraw.Draw(watermark_layer)
+        font_size = int(min(image.size) / 10)
+        try:
+            font = ImageFont.truetype("arial.ttf", font_size)
+        except:
+            font = ImageFont.load_default()
+        textwidth, textheight = draw.textsize(text, font=font)
+        x = (image.width - textwidth) // 2
+        y = (image.height - textheight) // 2
+        draw.text((x, y), text, fill=(255,255,255,int(255*opacity/100)), font=font)
+        watermarked = Image.alpha_composite(image, watermark_layer)
+        img_bytes = io.BytesIO()
+        watermarked.convert("RGB").save(img_bytes, format='JPEG')
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "watermarked.zip")
+
+@app.route('/convert/removebg', methods=['POST'])
+def removebg():
+    def save_func(img):
+        filename = secure_filename(img.filename)
+        image = Image.open(img).convert("RGBA")
+        arr = np.array(image)
+        mask = (arr[:,:,0] > 240) & (arr[:,:,1] > 240) & (arr[:,:,2] > 240)
+        arr[:,:,3][mask] = 0
+        new_img = Image.fromarray(arr)
+        img_bytes = io.BytesIO()
+        new_img.save(img_bytes, format='PNG')
+        return filename, img_bytes.getvalue()
+    return process_images(save_func, "nobg.zip")
+
+if __name__ == '__main__':
+    app.run(debug=True)
