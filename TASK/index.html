@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ImgKit - Online Image Tools</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ImgKit</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#compress"><i class="fa fa-compress"></i> Compress</a></li>
+        <li><a href="#resize"><i class="fa fa-arrows-alt"></i> Resize</a></li>
+        <li><a href="#crop"><i class="fa fa-crop"></i> Crop</a></li>
+        <li><a href="#convert2jpg"><i class="fa fa-file-image-o"></i> To JPG</a></li>
+        <li><a href="#convertfromjpg"><i class="fa fa-file-image-o"></i> From JPG</a></li>
+        <li><a href="#watermark"><i class="fa fa-stamp"></i> Watermark</a></li>
+        <li><a href="#removebg"><i class="fa fa-eraser"></i> Remove BG</a></li>
+        <li><a href="#rotate"><i class="fa fa-repeat"></i> Rotate</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>ImgKit</h1>
+      <p>All-in-one free online image tools. Convert, compress, and edit your images instantly.</p>
+    </section>
+    <section class="tools-grid">
+      <div class="tool-card" id="compress">
+        <div class="tool-icon" style="background:#c6e48b;"><i class="fa fa-compress"></i></div>
+        <h2>Compress IMAGE</h2>
+        <p>Compress JPG, PNG, SVG, and GIFs while saving space and maintaining quality.</p>
+        <form id="compressForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <button type="submit">Compress</button>
+        </form>
+        <div class="download-link" id="compressDownload"></div>
+      </div>
+      <div class="tool-card" id="resize">
+        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-arrows-alt"></i></div>
+        <h2>Resize IMAGE</h2>
+        <p>Define your dimensions, by percent or pixel, and resize your JPG, PNG, SVG, and GIF images.</p>
+        <form id="resizeForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <input type="number" name="width" placeholder="Width (px)" min="1" required>
+          <input type="number" name="height" placeholder="Height (px)" min="1" required>
+          <button type="submit">Resize</button>
+        </form>
+        <div class="download-link" id="resizeDownload"></div>
+      </div>
+      <div class="tool-card" id="crop">
+        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-crop"></i></div>
+        <h2>Crop IMAGE</h2>
+        <p>Crop JPG, PNG, or GIFs with ease; choose pixels to define your rectangle or use our visual editor.</p>
+        <form id="cropForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <input type="number" name="left" placeholder="Left (px)" min="0" required>
+          <input type="number" name="upper" placeholder="Top (px)" min="0" required>
+          <input type="number" name="right" placeholder="Right (px)" min="1" required>
+          <input type="number" name="lower" placeholder="Bottom (px)" min="1" required>
+          <button type="submit">Crop</button>
+        </form>
+        <div class="download-link" id="cropDownload"></div>
+      </div>
+      <div class="tool-card" id="convert2jpg">
+        <div class="tool-icon" style="background:#ffe066;"><i class="fa fa-file-image-o"></i></div>
+        <h2>Convert to JPG</h2>
+        <p>Turn PNG, GIF, TIF, PSD, SVG, WEBP, HEIC, or RAW format images to JPG in bulk with ease.</p>
+        <form id="png2jpgForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/png" multiple required>
+          <button type="submit">Convert</button>
+        </form>
+        <div class="download-link" id="png2jpgDownload"></div>
+      </div>
+      <div class="tool-card" id="convertfromjpg">
+        <div class="tool-icon" style="background:#ffe066;"><i class="fa fa-file-image-o"></i></div>
+        <h2>Convert from JPG</h2>
+        <p>Turn JPG images to PNG and GIF. Choose several JPGs to create an animated GIF in seconds!</p>
+        <form id="jpg2pnggifForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg" multiple required>
+          <select name="format" required>
+            <option value="png">Convert to PNG</option>
+            <option value="gif">Convert to GIF</option>
+          </select>
+          <button type="submit">Convert</button>
+        </form>
+        <div class="download-link" id="jpg2pnggifDownload"></div>
+      </div>
+      <div class="tool-card" id="removebg">
+        <div class="tool-icon" style="background:#c6e48b;"><i class="fa fa-eraser"></i></div>
+        <h2>Remove background</h2>
+        <p>Quickly remove image backgrounds with high accuracy. Instantly detect objects and cut out backgrounds with ease.</p>
+        <form id="removebgForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <button type="submit">Remove Background</button>
+        </form>
+        <div class="download-link" id="removebgDownload"></div>
+      </div>
+      <div class="tool-card" id="watermark">
+        <div class="tool-icon" style="background:#b2dfdb;"><i class="fa fa-stamp"></i></div>
+        <h2>Watermark IMAGE</h2>
+        <p>Stamp an image or text over your images in seconds. Choose the typography, transparency and position.</p>
+        <form id="watermarkForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <input type="text" name="text" placeholder="Watermark Text" required>
+          <input type="number" name="opacity" placeholder="Opacity (0-100)" min="0" max="100" value="50" required>
+          <button type="submit">Add Watermark</button>
+        </form>
+        <div class="download-link" id="watermarkDownload"></div>
+      </div>
+      <div class="tool-card" id="upscale">
+      <div class="tool-icon" style="background:#aed581;">📈</div>
+      <h2>Upscale</h2>
+      <p>Enhance image resolution and details intelligently.</p>
+      <p>Supports AI-based upscaling for crystal clear images.</p>
+      <form action="/convert/upscale" method="post" enctype="multipart/form-data">
+      <input type="file" name="images" accept="image/*" multiple required>
+      <button type="submit">Open Upscaler</button>
+      </form>
+      <div class="download-link" id="upscaleDownload"></div>
+      </div>
+
+      
+      <div class="tool-card" id="convert-bmp">
+      <div class="tool-icon" style="background:#ffcc80;">🧵</div>
+      <h2>Convert to BMP</h2>
+      <p>Convert your images into BMP format effortlessly.</p>
+      <p>Supports single and batch conversion.</p>
+      <form action="/convert/bmp" method="post" enctype="multipart/form-data">
+      <input type="file" name="images" accept="image/*" multiple required>
+      <button type="submit">Convert to BMP</button>
+      </form>
+      <div class="download-link" id="bmpDownload"></div>
+    </div>
+
+
+
+
+      <div class="tool-card" id="convert-pag">
+        <div class="tool-icon" style="background:#81d4fa;">📦</div>
+        <h2>Convert to PAG</h2>
+        <p>Convert images to PAG (Portable Animated Graphics) format.</p>
+        <p>Perfect for animations and graphic projects.</p>
+        <form action="/convert/pag" method="post" enctype="multipart/form-data">
+        <input type="file" name="images" accept="image/*" multiple required>
+        <button type="submit">Convert to PAG</button>
+      </form>
+
+        <div class="download-link" id="pagDownload"></div>
+      </div>
+
+    <div class="tool-card" id="convert-pdf">
+      <div class="tool-icon" style="background:#ce93d8;">📄</div>
+      <h2>Convert to PDF</h2>
+      <p>Convert images to PDF documents quickly and easily.</p>
+      <p>Supports multi-image PDF creation.</p>
+      <form action="/convert/pdf" method="post" enctype="multipart/form-data">
+      <input type="file" name="images" accept="image/*" multiple required>
+      <button type="submit">Convert to PDF</button>
+    </form>
+
+      <div class="download-link" id="pdfDownload"></div>
+    </div>
+      <div class="tool-card" id="rotate">
+        <div class="tool-icon" style="background:#b2eaff;"><i class="fa fa-repeat"></i></div>
+        <h2>Rotate IMAGE</h2>
+        <p>Rotate many images JPG, PNG or GIF at same time. Choose to rotate only landscape or portrait images!</p>
+        <form id="rotateForm" enctype="multipart/form-data">
+          <input type="file" name="images" accept="image/jpeg,image/png" multiple required>
+          <input type="number" name="angle" placeholder="Angle (deg)" value="90" required>
+          <button type="submit">Rotate</button>
+        </form>
+        <div class="download-link" id="rotateDownload"></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h2>ImgKit</h2>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p>Email: aquibahmed10@gmail.com</p>
+        <p>Email: raashad.md2004@gmail.com</p>
+        
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 - All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="/static/script.js"></script>
+</body>
+</html>
