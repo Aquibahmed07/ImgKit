@@ -78,13 +78,20 @@ def rotate():
 
 @app.route('/convert/crop', methods=['POST'])
 def crop():
-    left = int(request.form.get('left', 0))
-    upper = int(request.form.get('upper', 0))
-    right = int(request.form.get('right', 100))
-    lower = int(request.form.get('lower', 100))
     def save_func(img):
         filename = secure_filename(img.filename)
         image = Image.open(img)
+        width, height = image.size
+        # Get crop box values, defaulting right/lower to image size if not provided
+        left = int(request.form.get('left', 0))
+        upper = int(request.form.get('upper', 0))
+        right = int(request.form.get('right', width))
+        lower = int(request.form.get('lower', height))
+        # Ensure crop box is within image bounds
+        left = max(0, min(left, width - 1))
+        upper = max(0, min(upper, height - 1))
+        right = max(left + 1, min(right, width))
+        lower = max(upper + 1, min(lower, height))
         cropped = image.crop((left, upper, right, lower))
         img_bytes = io.BytesIO()
         fmt = 'JPEG' if image.format == 'JPEG' else 'PNG'

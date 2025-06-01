@@ -30,7 +30,7 @@ async function handleFormSubmit(formId, endpoint, defaultFilename) {
   handleFormSubmit('compressForm', '/convert/compress', 'compressed.zip');
   handleFormSubmit('resizeForm', '/convert/resize', 'resized.zip');
   handleFormSubmit('cropForm', '/convert/crop', 'cropped.zip');
-  handleFormSubmit('png2jpgForm', '/convert/jpg', 'converted_jpg.zip');
+  handleFormSubmit('png2jpgForm', '/convert/png2jpg', 'converted_jpg.zip');
   handleFormSubmit('jpg2pnggifForm', '/convert/jpg2pnggif', 'converted.zip');
   handleFormSubmit('removebgForm', '/convert/removebg', 'nobg.zip');
   handleFormSubmit('watermarkForm', '/convert/watermark', 'watermarked.zip');
